@@ -54,3 +54,9 @@ functions:
         - http:
             path: blogs/{id}
             method: get
+  list:
+      handler: list.main
+      events:
+        - http:
+            path: blogs
+            method: get
