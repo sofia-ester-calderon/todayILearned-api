@@ -48,6 +48,7 @@ functions:
         - http:
             path: blogs
             method: post
+            cors: true
             authorizer: aws_iam
   get:
       handler: get.main
@@ -55,18 +56,21 @@ functions:
         - http:
             path: blogs/{id}
             method: get
+            cors: true
   list:
       handler: list.main
       events:
         - http:
             path: blogs
             method: get
+            cors: true
   update:
       handler: update.main
       events:
         - http:
             path: blogs/{id}
             method: put
+            cors: true
             authorizer: aws_iam
   delete:
       handler: delete.main
@@ -74,4 +78,10 @@ functions:
         - http:
             path: blogs/{id}
             method: delete
+            cors: true
             authorizer: aws_iam
+
+# Create our resources with separate CloudFormation templates
+resources:
+  # API Gateway Errors
+  - ${file(resources/api-gateway-errors.yml)}
