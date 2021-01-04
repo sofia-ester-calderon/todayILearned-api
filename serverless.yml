@@ -48,6 +48,7 @@ functions:
         - http:
             path: blogs
             method: post
+            authorizer: aws_iam
   get:
       handler: get.main
       events:
@@ -66,9 +67,11 @@ functions:
         - http:
             path: blogs/{id}
             method: put
+            authorizer: aws_iam
   delete:
-    handler: delete.main
-    events:
-      - http:
-          path: blogs/{id}
-          method: delete
+      handler: delete.main
+      events:
+        - http:
+            path: blogs/{id}
+            method: delete
+            authorizer: aws_iam

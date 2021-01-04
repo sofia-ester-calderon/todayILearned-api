@@ -9,7 +9,7 @@ export const main = handler(async (event, context) => {
     Item: {
       blogDate: "2021-01-01",
       blogId: uuid.v1(),
-      blogText: data.text,
+      blogText: data.blogText,
       attachment: data.attachment,
       createdAt: Date.now(),
     },
