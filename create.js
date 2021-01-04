@@ -8,8 +8,8 @@ export const main = handler(async (event, context) => {
     TableName: process.env.tableName,
     Item: {
       blogDate: "2021-01-01",
-      blogID: uuid.v1(),
-      text: data.content,
+      blogId: uuid.v1(),
+      blogText: data.text,
       attachment: data.attachment,
       createdAt: Date.now(),
     },

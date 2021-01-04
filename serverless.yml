@@ -25,7 +25,7 @@ provider:
 
 
   environment:
-    tableName: blogs
+    tableName: tilBlogs
 
   # 'iamRoleStatements' defines the permission policy for the Lambda function.
   # In this case Lambda functions are granted with permissions to access DynamoDB.
@@ -60,3 +60,9 @@ functions:
         - http:
             path: blogs
             method: get
+  update:
+      handler: update.main
+      events:
+        - http:
+            path: blogs/{id}
+            method: put
