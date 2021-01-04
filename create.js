@@ -7,7 +7,7 @@ export const main = handler(async (event, context) => {
   const params = {
     TableName: process.env.tableName,
     Item: {
-      date: "2021-01-01",
+      blogDate: "2021-01-01",
       blogID: uuid.v1(),
       text: data.content,
       attachment: data.attachment,

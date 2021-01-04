@@ -6,7 +6,7 @@ export const main = handler(async (event, context) => {
     TableName: process.env.tableName,
     Key: {
       blogID: event.pathParameters.id,
-      date: "2021-01-01",
+      blogDate: "2021-01-01",
     },
   };
 
