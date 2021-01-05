@@ -2,8 +2,15 @@ import handler from "./libs/handler-lib";
 import dynamoDb from "./libs/dynamodb-lib";
 
 export const main = handler(async (event, context) => {
-  var params = {
+  let startKey = null;
+  if (event.queryStringParameters && event.queryStringParameters.lastKey) {
+    startKey = { blogId: event.queryStringParameters.lastKey };
+  }
+
+  const params = {
     TableName: process.env.tableName,
+    Limit: 2,
+    ExclusiveStartKey: startKey,
   };
 
   console.log("Scanning Candidate table.");
@@ -11,6 +18,8 @@ export const main = handler(async (event, context) => {
     if (err) {
       return err;
     } else {
+      console.log("items found", data.Items);
+      console.log(data.LastEvaluatedKey);
       return {
         statusCode: 200,
         body: JSON.stringify({

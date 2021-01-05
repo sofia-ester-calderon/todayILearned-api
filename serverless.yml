@@ -64,6 +64,10 @@ functions:
             path: blogs
             method: get
             cors: true
+            request:
+              parameters:
+                querystrings:
+                  lastKey: true
   update:
       handler: update.main
       events:
